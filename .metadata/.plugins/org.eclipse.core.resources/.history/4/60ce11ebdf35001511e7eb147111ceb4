@@ -1,0 +1,247 @@
+/*
+ * student ID: 1570008
+ */
+grammar BKOOL;
+
+@lexer::header {
+	package bkool.parser;
+}
+
+@parser::header {
+	package bkool.parser;
+}
+
+options {
+ 	language = Java;
+}
+          
+// student for recognizer start from here
+
+program: class_decl+;
+
+/*=========================== class declare ================================ */
+class_decl: CLASS ID (EXTENDS ID)? LP list_members RP;
+
+list_members: (attribute | method_decl)*;
+
+attribute: (const_decl | var_decl)*;
+
+method_decl: primitive_type STATIC? ID LB list_params RB LP block_statement RP;
+
+list_params: var_list;
+
+/*=========================== const declare ================================ */
+const_decl: STATIC? FINAL var_const_type ID CONST_DECL const_decl_rhs SEMICOLON;
+
+const_decl_rhs: logical_entity | numeric_entity | const_expr;
+
+const_expr: const_expr arithmetic_operator const_expr
+          | const_expr CONCAT const_expr
+          | LB const_expr RB
+          | numeric_entity
+          | STRING_LITERAL;
+
+/*============================= var declare ================================ */
+var_decl: STATIC? var_list SEMICOLON;
+
+var_list: ID+ COLON var_list_type;
+
+var_list_type: array_type | var_const_type;
+
+/*=============================== basis types ================================== */
+primitive_type: INTEGER
+              | FLOAT
+              | BOOL
+              | STRING
+              | VOID;
+              
+var_const_type: INTEGER
+        | FLOAT
+        | BOOL
+        | STRING
+        | class_type;
+        
+array_type: var_const_type LSB INT_LITERAL RSB;
+        
+class_type: ID;
+
+/*============================= block statement ================================= */
+block_statement: ;
+
+/*============================= if statement ================================= */
+if_then_statement: IF if_statement THEN then_statement (ELSE else_statement)?;
+
+if_statement: comparison_expr | logical_expr;
+then_statement: if_then_statement | assign_statement;
+else_statement: if_then_statement | assign_statement;
+
+/*=========================== assign statement ================================ */
+assign_statement: ID ASSIGN assign_rhs SEMICOLON;
+
+assign_rhs: arithmetic_expr | logical_entity | numeric_entity | ID;
+
+logical_expr: logical_expr LOGICAL_AND logical_expr
+            | logical_expr LOGICAL_OR logical_expr
+            | comparison_expr
+            | LB logical_expr RB
+            | logical_entity
+            | ID;
+
+comparison_expr: comparison_operand comp_operator comparison_operand
+               | LB comparison_expr RB;
+
+comparison_operand: arithmetic_expr;
+
+comp_operator: GREATER
+             | GREATER_OR_EQUAL
+             | LESS
+             | LESS_OR_EQUAL
+             | EQUAL
+             | DIFF
+             ;
+
+arithmetic_expr: arithmetic_expr arithmetic_operator arithmetic_expr
+               | SUB arithmetic_expr
+               | LB arithmetic_expr RB
+               | numeric_entity
+               | ID;
+ 
+arithmetic_operator: MUL
+                   | INT_DIV
+                   | FLOAT_DIV
+                   | ADD
+                   | SUB
+                   | MOD;
+
+logical_entity : TRUE | FALSE;
+
+numeric_entity : INT_LITERAL | FLOAT_LITERAL;
+
+// student for Lexer start from here
+/* const declaration */
+CONST_DECL: '=';
+
+STRING_LITERAL: '\"' ('\\b' | '\\t' | '\\r' | '\\n' | '\\f' | '\\\\' | '\\"' | .)*? '\"';
+
+/* comment */
+LINE_CMT: '#'.+?('\n'|EOF) -> skip;
+
+BLOCK_CMT: '(*'.+?'*)' -> skip;
+
+/* character set */
+WS: [ \t\r\f\n]+ -> skip;
+
+/* keyword */
+BOOL: 'bool';
+
+BREAK: 'break';
+
+CLASS: 'class';
+
+CONTINUE: 'continue';
+
+DO: 'do';
+
+ELSE: 'else';
+
+EXTENDS: 'extends';
+
+FALSE: 'false';
+
+FINAL: 'final';
+
+FLOAT: 'float';
+
+IF: 'if';
+
+INTEGER: 'integer';
+
+NEW: 'new';
+
+NULL: 'null';
+
+RETURN: 'return';
+
+SELF: 'self';
+
+STATIC: 'static';
+
+STRING: 'string';
+
+THEN: 'then';
+
+TRUE: 'true';
+
+VOID: 'void';
+
+WHILE: 'while';
+
+/* io */
+IO: 'io';
+
+/* operator */
+ADD: '+';
+
+SUB: '-';
+
+MUL: '*';
+
+FLOAT_DIV: '/';
+
+INT_DIV: '\\';
+
+MOD: '%';
+
+DIFF: '<>';
+
+EQUAL: '==';
+
+LESS: '<';
+
+GREATER: '>';
+
+LESS_OR_EQUAL: '<=';
+
+GREATER_OR_EQUAL: '>=';
+
+LOGICAL_OR: '||';
+
+LOGICAL_AND: '&&';
+
+LOGICAL_NOT: '!';
+
+CONCAT: '^';
+
+/* literal */
+FLOAT_LITERAL: [0-9]+('.'[0-9]+)?[E|e][+|-][0-9]+;
+
+INT_LITERAL: [0-9]+;
+
+/* identifier */
+ID: [_a-zA-Z][_a-zA-Z0-9]*;
+
+/* separator */
+LSB: '[';
+
+RSB: ']';
+
+LP: '{';
+
+RP: '}';
+
+LB: '(';
+ 
+RB: ')';
+
+SEMICOLON: ';';
+
+COLON: ':';
+
+DOT: '.';
+
+COMMA: ',';
+
+/* statement */
+ASSIGN: ':=';
+
+UNCLOSE_STRING: '\"' {System.out.print("There is an unclosed string.\n");};

@@ -1,0 +1,54 @@
+class a {
+    final integer a = 1;
+    integer method(a:float) {
+        a := b + 1;
+        a.func();
+        a.fun(a.ham(), b);
+        a.b().c();
+        a.ham(a[4]);
+    }
+}
+
+class b {
+    final integer a = 1;
+    b(a:integer; b:float; c,d:bool){
+        var1:integer;
+        va, list: shape[5];
+        a := b +1;
+        var1:integer;
+        a := b +1;
+        a := t[1];
+        #io.readInt();
+        io.writeInt(3);
+        if a > b then a := b-1; else a := b +1;
+        while a > b do {
+            val: float;
+            a := a + 2;
+            if a == 2 then {
+                val2: integer;
+                break;
+            } else {
+                val3: string;
+                while a < b do break;
+                continue;
+            }
+            break;
+            return a;
+        }
+        break;
+        continue;
+        return a;
+    }
+    integer method(a:float) {
+        var1:integer;
+        a := b +1;
+        var1:integer;
+        a := b +1;
+        return a;
+        a := new a();
+    }
+}
+
+class b {
+
+}

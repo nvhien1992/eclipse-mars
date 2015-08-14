@@ -1,0 +1,373 @@
+// Generated from BKOOL.g4 by ANTLR 4.5
+
+	package bkool.parser;
+
+import org.antlr.v4.runtime.misc.NotNull;
+import org.antlr.v4.runtime.tree.ParseTreeListener;
+
+/**
+ * This interface defines a complete listener for a parse tree produced by
+ * {@link BKOOLParser}.
+ */
+public interface BKOOLListener extends ParseTreeListener {
+	/**
+	 * Enter a parse tree produced by {@link BKOOLParser#program}.
+	 * @param ctx the parse tree
+	 */
+	void enterProgram(BKOOLParser.ProgramContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BKOOLParser#program}.
+	 * @param ctx the parse tree
+	 */
+	void exitProgram(BKOOLParser.ProgramContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BKOOLParser#class_decl}.
+	 * @param ctx the parse tree
+	 */
+	void enterClass_decl(BKOOLParser.Class_declContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BKOOLParser#class_decl}.
+	 * @param ctx the parse tree
+	 */
+	void exitClass_decl(BKOOLParser.Class_declContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BKOOLParser#list_members}.
+	 * @param ctx the parse tree
+	 */
+	void enterList_members(BKOOLParser.List_membersContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BKOOLParser#list_members}.
+	 * @param ctx the parse tree
+	 */
+	void exitList_members(BKOOLParser.List_membersContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BKOOLParser#constuctor}.
+	 * @param ctx the parse tree
+	 */
+	void enterConstuctor(BKOOLParser.ConstuctorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BKOOLParser#constuctor}.
+	 * @param ctx the parse tree
+	 */
+	void exitConstuctor(BKOOLParser.ConstuctorContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BKOOLParser#attribute}.
+	 * @param ctx the parse tree
+	 */
+	void enterAttribute(BKOOLParser.AttributeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BKOOLParser#attribute}.
+	 * @param ctx the parse tree
+	 */
+	void exitAttribute(BKOOLParser.AttributeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BKOOLParser#method_decl}.
+	 * @param ctx the parse tree
+	 */
+	void enterMethod_decl(BKOOLParser.Method_declContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BKOOLParser#method_decl}.
+	 * @param ctx the parse tree
+	 */
+	void exitMethod_decl(BKOOLParser.Method_declContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BKOOLParser#list_params}.
+	 * @param ctx the parse tree
+	 */
+	void enterList_params(BKOOLParser.List_paramsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BKOOLParser#list_params}.
+	 * @param ctx the parse tree
+	 */
+	void exitList_params(BKOOLParser.List_paramsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BKOOLParser#const_decl}.
+	 * @param ctx the parse tree
+	 */
+	void enterConst_decl(BKOOLParser.Const_declContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BKOOLParser#const_decl}.
+	 * @param ctx the parse tree
+	 */
+	void exitConst_decl(BKOOLParser.Const_declContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BKOOLParser#const_decl_rhs}.
+	 * @param ctx the parse tree
+	 */
+	void enterConst_decl_rhs(BKOOLParser.Const_decl_rhsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BKOOLParser#const_decl_rhs}.
+	 * @param ctx the parse tree
+	 */
+	void exitConst_decl_rhs(BKOOLParser.Const_decl_rhsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BKOOLParser#var_decl}.
+	 * @param ctx the parse tree
+	 */
+	void enterVar_decl(BKOOLParser.Var_declContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BKOOLParser#var_decl}.
+	 * @param ctx the parse tree
+	 */
+	void exitVar_decl(BKOOLParser.Var_declContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BKOOLParser#var_list}.
+	 * @param ctx the parse tree
+	 */
+	void enterVar_list(BKOOLParser.Var_listContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BKOOLParser#var_list}.
+	 * @param ctx the parse tree
+	 */
+	void exitVar_list(BKOOLParser.Var_listContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BKOOLParser#var_list_type}.
+	 * @param ctx the parse tree
+	 */
+	void enterVar_list_type(BKOOLParser.Var_list_typeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BKOOLParser#var_list_type}.
+	 * @param ctx the parse tree
+	 */
+	void exitVar_list_type(BKOOLParser.Var_list_typeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BKOOLParser#primitive_type}.
+	 * @param ctx the parse tree
+	 */
+	void enterPrimitive_type(BKOOLParser.Primitive_typeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BKOOLParser#primitive_type}.
+	 * @param ctx the parse tree
+	 */
+	void exitPrimitive_type(BKOOLParser.Primitive_typeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BKOOLParser#var_const_type}.
+	 * @param ctx the parse tree
+	 */
+	void enterVar_const_type(BKOOLParser.Var_const_typeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BKOOLParser#var_const_type}.
+	 * @param ctx the parse tree
+	 */
+	void exitVar_const_type(BKOOLParser.Var_const_typeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BKOOLParser#array_type}.
+	 * @param ctx the parse tree
+	 */
+	void enterArray_type(BKOOLParser.Array_typeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BKOOLParser#array_type}.
+	 * @param ctx the parse tree
+	 */
+	void exitArray_type(BKOOLParser.Array_typeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BKOOLParser#class_type}.
+	 * @param ctx the parse tree
+	 */
+	void enterClass_type(BKOOLParser.Class_typeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BKOOLParser#class_type}.
+	 * @param ctx the parse tree
+	 */
+	void exitClass_type(BKOOLParser.Class_typeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BKOOLParser#block_statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterBlock_statement(BKOOLParser.Block_statementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BKOOLParser#block_statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitBlock_statement(BKOOLParser.Block_statementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BKOOLParser#if_then_statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterIf_then_statement(BKOOLParser.If_then_statementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BKOOLParser#if_then_statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitIf_then_statement(BKOOLParser.If_then_statementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BKOOLParser#if_statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterIf_statement(BKOOLParser.If_statementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BKOOLParser#if_statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitIf_statement(BKOOLParser.If_statementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BKOOLParser#then_statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterThen_statement(BKOOLParser.Then_statementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BKOOLParser#then_statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitThen_statement(BKOOLParser.Then_statementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BKOOLParser#else_statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterElse_statement(BKOOLParser.Else_statementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BKOOLParser#else_statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitElse_statement(BKOOLParser.Else_statementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BKOOLParser#while_statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterWhile_statement(BKOOLParser.While_statementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BKOOLParser#while_statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitWhile_statement(BKOOLParser.While_statementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BKOOLParser#assign_statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterAssign_statement(BKOOLParser.Assign_statementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BKOOLParser#assign_statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitAssign_statement(BKOOLParser.Assign_statementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BKOOLParser#assign_rhs}.
+	 * @param ctx the parse tree
+	 */
+	void enterAssign_rhs(BKOOLParser.Assign_rhsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BKOOLParser#assign_rhs}.
+	 * @param ctx the parse tree
+	 */
+	void exitAssign_rhs(BKOOLParser.Assign_rhsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BKOOLParser#const_expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterConst_expr(BKOOLParser.Const_exprContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BKOOLParser#const_expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitConst_expr(BKOOLParser.Const_exprContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BKOOLParser#logical_expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterLogical_expr(BKOOLParser.Logical_exprContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BKOOLParser#logical_expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitLogical_expr(BKOOLParser.Logical_exprContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BKOOLParser#comparison_expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterComparison_expr(BKOOLParser.Comparison_exprContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BKOOLParser#comparison_expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitComparison_expr(BKOOLParser.Comparison_exprContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BKOOLParser#comparison_operand}.
+	 * @param ctx the parse tree
+	 */
+	void enterComparison_operand(BKOOLParser.Comparison_operandContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BKOOLParser#comparison_operand}.
+	 * @param ctx the parse tree
+	 */
+	void exitComparison_operand(BKOOLParser.Comparison_operandContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BKOOLParser#comp_operator}.
+	 * @param ctx the parse tree
+	 */
+	void enterComp_operator(BKOOLParser.Comp_operatorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BKOOLParser#comp_operator}.
+	 * @param ctx the parse tree
+	 */
+	void exitComp_operator(BKOOLParser.Comp_operatorContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BKOOLParser#arithmetic_expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterArithmetic_expr(BKOOLParser.Arithmetic_exprContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BKOOLParser#arithmetic_expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitArithmetic_expr(BKOOLParser.Arithmetic_exprContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BKOOLParser#arithmetic_operator}.
+	 * @param ctx the parse tree
+	 */
+	void enterArithmetic_operator(BKOOLParser.Arithmetic_operatorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BKOOLParser#arithmetic_operator}.
+	 * @param ctx the parse tree
+	 */
+	void exitArithmetic_operator(BKOOLParser.Arithmetic_operatorContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BKOOLParser#invocation_attr}.
+	 * @param ctx the parse tree
+	 */
+	void enterInvocation_attr(BKOOLParser.Invocation_attrContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BKOOLParser#invocation_attr}.
+	 * @param ctx the parse tree
+	 */
+	void exitInvocation_attr(BKOOLParser.Invocation_attrContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BKOOLParser#invocation_method}.
+	 * @param ctx the parse tree
+	 */
+	void enterInvocation_method(BKOOLParser.Invocation_methodContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BKOOLParser#invocation_method}.
+	 * @param ctx the parse tree
+	 */
+	void exitInvocation_method(BKOOLParser.Invocation_methodContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BKOOLParser#list_specified_params}.
+	 * @param ctx the parse tree
+	 */
+	void enterList_specified_params(BKOOLParser.List_specified_paramsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BKOOLParser#list_specified_params}.
+	 * @param ctx the parse tree
+	 */
+	void exitList_specified_params(BKOOLParser.List_specified_paramsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BKOOLParser#logical_entity}.
+	 * @param ctx the parse tree
+	 */
+	void enterLogical_entity(BKOOLParser.Logical_entityContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BKOOLParser#logical_entity}.
+	 * @param ctx the parse tree
+	 */
+	void exitLogical_entity(BKOOLParser.Logical_entityContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BKOOLParser#numeric_entity}.
+	 * @param ctx the parse tree
+	 */
+	void enterNumeric_entity(BKOOLParser.Numeric_entityContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BKOOLParser#numeric_entity}.
+	 * @param ctx the parse tree
+	 */
+	void exitNumeric_entity(BKOOLParser.Numeric_entityContext ctx);
+}

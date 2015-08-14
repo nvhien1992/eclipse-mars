@@ -1,0 +1,3 @@
+final integer a = 1 + 2;
+if a > b then c := a; else c := b;
+a:=b+1;

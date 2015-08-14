@@ -1,0 +1,22 @@
+_aA_1
+a_1
+A_
+"this is a \"string\""
+
+#this is a (* *) line comment
+(* 
+	#line cmt
+	block comment
+	block comment
+*)
+
+void func(a:integer);
+
+strC = stringA ^ stringB;
+a && b
+
+if a > b then return true else return false;
+
+a:=b+1;
+
+a=12;

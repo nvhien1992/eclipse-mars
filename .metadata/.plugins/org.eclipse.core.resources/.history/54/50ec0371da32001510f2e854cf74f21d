@@ -1,0 +1,234 @@
+// Generated from BKOOL.g4 by ANTLR 4.5
+
+	package bkool.parser;
+
+import org.antlr.v4.runtime.atn.*;
+import org.antlr.v4.runtime.dfa.DFA;
+import org.antlr.v4.runtime.*;
+import org.antlr.v4.runtime.misc.*;
+import org.antlr.v4.runtime.tree.*;
+import java.util.List;
+import java.util.Iterator;
+import java.util.ArrayList;
+
+@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
+public class BKOOLParser extends Parser {
+	static { RuntimeMetaData.checkVersion("4.5", RuntimeMetaData.VERSION); }
+
+	protected static final DFA[] _decisionToDFA;
+	protected static final PredictionContextCache _sharedContextCache =
+		new PredictionContextCache();
+	public static final int
+		CONST_DECL=1, WS=2, LINE_CMT=3, START_CMT_BLOCK=4, END_CMT_BLOCK=5, ID=6, 
+		BOOL=7, BREAK=8, CLASS=9, CONTINUE=10, DO=11, ELSE=12, EXTENDS=13, FALSE=14, 
+		FINAL=15, FLOAT=16, IF=17, INTEGER=18, NEW=19, NULL=20, RETURN=21, SELF=22, 
+		STATIC=23, STRING=24, THEN=25, TRUE=26, VOID=27, WHILE=28, ADD=29, SUB=30, 
+		MUL=31, FLOAT_DIV=32, INT_DIV=33, MOD=34, DIFF=35, EQUAL=36, LESS=37, 
+		GREATER=38, LESS_OR_EQUAL=39, GREATER_OR_EQUAL=40, LOGICAL_OR=41, LOGICAL_AND=42, 
+		LOGICAL_NOT=43, CONCAT=44, LSB=45, RSB=46, LP=47, RP=48, LB=49, RB=50, 
+		SEMICOLON=51, COLON=52, DOT=53, COMMA=54, INT_LITERAL=55, FLOAT_LITERAL=56, 
+		BOOL_LITERAL=57, STRING_LITERAL=58, ASSIGN=59, IO=60, UNCLOSE_STRING=61;
+	public static final int
+		RULE_program = 0, RULE_class_decl = 1;
+	public static final String[] ruleNames = {
+		"program", "class_decl"
+	};
+
+	private static final String[] _LITERAL_NAMES = {
+		null, "'='", null, null, "'(*'", "'*)'", null, "'bool'", "'break'", "'class'", 
+		"'continue'", "'do'", "'else'", "'extends'", "'false'", "'final'", "'float'", 
+		"'if'", "'integer'", "'new'", "'null'", "'return'", "'self'", "'static'", 
+		"'string'", "'then'", "'true'", "'void'", "'while'", "'+'", "'-'", "'*'", 
+		"'/'", "'\\'", "'%'", "'<>'", "'=='", "'<'", "'>'", "'<='", "'>='", "'||'", 
+		"'&&'", "'!'", "'^'", "'['", "']'", "'{'", "'}'", "'('", "')'", "';'", 
+		"':'", "'.'", "','", null, null, null, null, "':='", "'io.'", "'\"'"
+	};
+	private static final String[] _SYMBOLIC_NAMES = {
+		null, "CONST_DECL", "WS", "LINE_CMT", "START_CMT_BLOCK", "END_CMT_BLOCK", 
+		"ID", "BOOL", "BREAK", "CLASS", "CONTINUE", "DO", "ELSE", "EXTENDS", "FALSE", 
+		"FINAL", "FLOAT", "IF", "INTEGER", "NEW", "NULL", "RETURN", "SELF", "STATIC", 
+		"STRING", "THEN", "TRUE", "VOID", "WHILE", "ADD", "SUB", "MUL", "FLOAT_DIV", 
+		"INT_DIV", "MOD", "DIFF", "EQUAL", "LESS", "GREATER", "LESS_OR_EQUAL", 
+		"GREATER_OR_EQUAL", "LOGICAL_OR", "LOGICAL_AND", "LOGICAL_NOT", "CONCAT", 
+		"LSB", "RSB", "LP", "RP", "LB", "RB", "SEMICOLON", "COLON", "DOT", "COMMA", 
+		"INT_LITERAL", "FLOAT_LITERAL", "BOOL_LITERAL", "STRING_LITERAL", "ASSIGN", 
+		"IO", "UNCLOSE_STRING"
+	};
+	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
+
+	/**
+	 * @deprecated Use {@link #VOCABULARY} instead.
+	 */
+	@Deprecated
+	public static final String[] tokenNames;
+	static {
+		tokenNames = new String[_SYMBOLIC_NAMES.length];
+		for (int i = 0; i < tokenNames.length; i++) {
+			tokenNames[i] = VOCABULARY.getLiteralName(i);
+			if (tokenNames[i] == null) {
+				tokenNames[i] = VOCABULARY.getSymbolicName(i);
+			}
+
+			if (tokenNames[i] == null) {
+				tokenNames[i] = "<INVALID>";
+			}
+		}
+	}
+
+	@Override
+	@Deprecated
+	public String[] getTokenNames() {
+		return tokenNames;
+	}
+
+	@Override
+
+	public Vocabulary getVocabulary() {
+		return VOCABULARY;
+	}
+
+	@Override
+	public String getGrammarFileName() { return "BKOOL.g4"; }
+
+	@Override
+	public String[] getRuleNames() { return ruleNames; }
+
+	@Override
+	public String getSerializedATN() { return _serializedATN; }
+
+	@Override
+	public ATN getATN() { return _ATN; }
+
+	public BKOOLParser(TokenStream input) {
+		super(input);
+		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
+	}
+	public static class ProgramContext extends ParserRuleContext {
+		public List<Class_declContext> class_decl() {
+			return getRuleContexts(Class_declContext.class);
+		}
+		public Class_declContext class_decl(int i) {
+			return getRuleContext(Class_declContext.class,i);
+		}
+		public ProgramContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_program; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BKOOLListener ) ((BKOOLListener)listener).enterProgram(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BKOOLListener ) ((BKOOLListener)listener).exitProgram(this);
+		}
+	}
+
+	public final ProgramContext program() throws RecognitionException {
+		ProgramContext _localctx = new ProgramContext(_ctx, getState());
+		enterRule(_localctx, 0, RULE_program);
+		int _la;
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(5); 
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			do {
+				{
+				{
+				setState(4);
+				class_decl();
+				}
+				}
+				setState(7); 
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+			} while ( _la==STRING_LITERAL );
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class Class_declContext extends ParserRuleContext {
+		public List<TerminalNode> STRING_LITERAL() { return getTokens(BKOOLParser.STRING_LITERAL); }
+		public TerminalNode STRING_LITERAL(int i) {
+			return getToken(BKOOLParser.STRING_LITERAL, i);
+		}
+		public Class_declContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_class_decl; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BKOOLListener ) ((BKOOLListener)listener).enterClass_decl(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BKOOLListener ) ((BKOOLListener)listener).exitClass_decl(this);
+		}
+	}
+
+	public final Class_declContext class_decl() throws RecognitionException {
+		Class_declContext _localctx = new Class_declContext(_ctx, getState());
+		enterRule(_localctx, 2, RULE_class_decl);
+		try {
+			int _alt;
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(10); 
+			_errHandler.sync(this);
+			_alt = 1;
+			do {
+				switch (_alt) {
+				case 1:
+					{
+					{
+					setState(9);
+					match(STRING_LITERAL);
+					}
+					}
+					break;
+				default:
+					throw new NoViableAltException(this);
+				}
+				setState(12); 
+				_errHandler.sync(this);
+				_alt = getInterpreter().adaptivePredict(_input,1,_ctx);
+			} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static final String _serializedATN =
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3?\21\4\2\t\2\4\3\t"+
+		"\3\3\2\6\2\b\n\2\r\2\16\2\t\3\3\6\3\r\n\3\r\3\16\3\16\3\3\2\2\4\2\4\2"+
+		"\2\20\2\7\3\2\2\2\4\f\3\2\2\2\6\b\5\4\3\2\7\6\3\2\2\2\b\t\3\2\2\2\t\7"+
+		"\3\2\2\2\t\n\3\2\2\2\n\3\3\2\2\2\13\r\7<\2\2\f\13\3\2\2\2\r\16\3\2\2\2"+
+		"\16\f\3\2\2\2\16\17\3\2\2\2\17\5\3\2\2\2\4\t\16";
+	public static final ATN _ATN =
+		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
+	static {
+		_decisionToDFA = new DFA[_ATN.getNumberOfDecisions()];
+		for (int i = 0; i < _ATN.getNumberOfDecisions(); i++) {
+			_decisionToDFA[i] = new DFA(_ATN.getDecisionState(i), i);
+		}
+	}
+}

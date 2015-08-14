@@ -1,0 +1,332 @@
+/*
+ * student ID: 1570008
+ */
+grammar BKOOL;
+
+@lexer::header {
+	package bkool.parser;
+}
+
+@parser::header {
+	package bkool.parser;
+}
+
+options {
+ 	language = Java;
+}
+          
+// student for recognizer start from here
+
+program: class_decl+;
+
+/*=========================== class declare ================================*/
+class_decl: CLASS ID (EXTENDS ID)? LP list_members RP;
+list_members: (constuctor | attribute | method_decl)*;
+constuctor: ID LB list_params? RB block_statement;
+attribute: const_decl | var_decl;
+method_decl: bkool_type STATIC? ID LB list_params? RB block_statement;
+list_params: var_list (SEMICOLON var_list)*;
+
+/*=========================== const declare ================================*/
+const_decl: STATIC? FINAL bkool_type ID CONST_DECL const_decl_rhs SEMICOLON;
+const_decl_rhs: logical_literal | numeric_literal | int_const_expr | float_const_expr | string_const_expr;
+
+/*============================= var declare ================================*/
+var_decl: STATIC? var_list SEMICOLON;
+var_list: ID (COMMA ID)* COLON bkool_type;
+
+/*=============================== types ================================*/
+bkool_type: primitive_type | class_type | array_type;
+
+primitive_type: INTEGER
+              | FLOAT
+              | BOOL
+              | STRING
+              | VOID;
+
+class_type: ID;
+
+array_type: (primitive_type | class_type) LSB int_const_expr RSB;
+
+/*============================= block statement =================================*/
+block_statement: LP (single_statement)* RP;
+
+/*=============================== if statement =================================*/
+if_then_statement: IF boolean_expr THEN then_else_statement (ELSE then_else_statement)?;
+then_else_statement: block_statement | single_statement;
+
+/*=========================== while statement ================================*/
+while_statement: WHILE boolean_expr DO do_statement;
+do_statement: block_statement | single_statement;
+
+/*=========================== method invocation statements ================================*/
+method_call_stmt: method_access SEMICOLON;
+
+/*=========================== single statements ================================*/
+single_statement: assign_statement
+                | var_decl
+                | const_decl
+                | method_call_stmt
+                | if_then_statement
+                | while_statement
+                | continue_statement
+                | break_statement
+                | return_statement
+                | io_statement;
+
+io_statement: io_rd_stmt
+            | io_wr_int_stmt
+            | io_wr_float_stmt
+            | io_wr_bool_stmt
+            | io_wr_str_stmt;
+
+/*=========================== assign statement ================================*/
+assign_statement: assign_lhs ASSIGN assign_rhs SEMICOLON;
+assign_lhs: ID | index_expr;// | invocation_attr;
+assign_rhs: arithmetic_expr
+          | boolean_expr
+          | obj_creattion
+          | logical_literal
+          | numeric_literal
+          | ID;
+          
+/*=========================== break statement ================================*/
+break_statement: BREAK SEMICOLON;
+
+/*=========================== continue statement ==============================*/
+continue_statement: CONTINUE SEMICOLON;
+
+/*=========================== return statement ==============================*/
+return_statement: RETURN list_expr SEMICOLON;
+
+/*=========================== common expr ================================*/
+obj_creattion: NEW ID LB obj_params? RB;
+obj_params: list_expr (COMMA list_expr)*;
+
+list_expr: string_expr | boolean_expr | obj_creattion | arithmetic_expr | method_access | attr_access | index_expr;
+
+index_expr: name_index_expr LSB index RSB;
+name_index_expr: ID | attr_access | method_access;
+index: arithmetic_expr;
+
+int_const_expr: int_const_expr int_arithmetic_operator int_const_expr
+          | LB int_const_expr RB
+          | INT_LITERAL;
+float_const_expr: float_const_expr float_arithmetic_operator float_const_expr
+                | LB float_const_expr RB
+                | numeric_literal;
+          
+string_expr: string_expr CONCAT string_expr
+           | LB string_expr RB
+           | index_expr
+           | attr_access
+           | method_access
+           | obj_creattion
+           | STRING_LITERAL
+           | ID; 
+string_const_expr: string_const_expr CONCAT string_const_expr
+                 | LB string_const_expr RB
+                 | STRING_LITERAL;
+
+boolean_expr: boolean_expr LOGICAL_AND boolean_expr
+            | boolean_expr LOGICAL_OR boolean_expr
+            | LB boolean_expr RB
+            | LOGICAL_NOT boolean_expr
+            | comparison_expr
+            | obj_creattion
+            | attr_access
+            | method_access
+            | index_expr
+            | logical_literal
+            | ID;
+comparison_expr: comparison_operand comp_operator comparison_operand
+               | LB comparison_expr RB;
+comparison_operand: arithmetic_expr;// | string_expr | logical_expr ;
+comp_operator: GREATER
+             | GREATER_OR_EQUAL
+             | LESS
+             | LESS_OR_EQUAL
+             | EQUAL
+             | DIFF;
+arithmetic_expr: arithmetic_expr arithmetic_operator arithmetic_expr
+               | SUB arithmetic_expr
+               | LB arithmetic_expr RB
+               | index_expr
+               | obj_creattion
+               | attr_access
+               | method_access
+               | numeric_literal
+               | ID;
+
+arithmetic_operator: int_arithmetic_operator | float_arithmetic_operator;
+int_arithmetic_operator: MUL
+                       | INT_DIV
+                       | ADD
+                       | SUB
+                       | MOD;
+float_arithmetic_operator: MUL
+                         | FLOAT_DIV
+                         | ADD
+                         | SUB;
+
+/*============================== member access ===================================*/
+attr_access: (SELF | ID | method_access) DOT ID;
+method_access: (SELF | ID | other_method_access) DOT ID LB  method_params? RB;
+other_method_access: (SELF | ID) DOT ID LB  method_params? RB;
+method_params: list_method_params (COMMA list_method_params)*; 
+list_method_params: list_expr;
+
+/*=========================== common type literal ================================*/
+logical_literal : TRUE | FALSE;
+numeric_literal : INT_LITERAL | FLOAT_LITERAL;
+
+/*================================ io class ===================================*/
+io_rd_stmt: (IO_RD_INT | IO_RD_FLOAT | IO_RD_BOOL | IO_RD_STR) LB RB SEMICOLON;
+io_wr_int_stmt: (IO_WR_INT | IO_WR_INT_LN) LB arithmetic_expr RB SEMICOLON;
+io_wr_float_stmt: (IO_WR_FLOAT | IO_WR_FLOAT_LN) LB arithmetic_expr RB SEMICOLON;
+io_wr_bool_stmt: (IO_WR_BOOL | IO_WR_BOOL_LN) LB boolean_expr RB SEMICOLON;
+io_wr_str_stmt: (IO_WR_STR | IO_WR_STR_LN) LB string_expr RB SEMICOLON;
+
+/*##############################################################################*/
+// student for Lexer start from here
+/* const declaration */
+CONST_DECL: '=';
+
+STRING_LITERAL: '\"'('\\b' | '\\t' | '\\r' | '\n' | '\\f' | '\\\\' | '\\"' | .)*? '\"';
+
+UNCLOSE_STRING: '\"' {System.out.print("There is an unclosed string.\n");};
+
+/* comment */
+LINE_CMT: '#'.*?('\n'|EOF) -> skip;
+
+BLOCK_CMT: '(*'.*?'*)' -> skip;
+
+/* character set */
+WS: [ \t\r\f\n]+ -> skip;
+
+/* keyword */
+BOOL: 'bool';
+
+BREAK: 'break';
+
+CLASS: 'class';
+
+CONTINUE: 'continue';
+
+DO: 'do';
+
+ELSE: 'else';
+
+EXTENDS: 'extends';
+
+FALSE: 'false';
+
+FINAL: 'final';
+
+FLOAT: 'float';
+
+IF: 'if';
+
+INTEGER: 'integer';
+
+NEW: 'new';
+
+NULL: 'null';
+
+RETURN: 'return';
+
+SELF: 'self';
+
+STATIC: 'static';
+
+STRING: 'string';
+
+THEN: 'then';
+
+TRUE: 'true';
+
+VOID: 'void';
+
+WHILE: 'while';
+
+/* static io methods */
+IO_RD_INT: 'io.readInt';
+IO_WR_INT: 'io.writeInt';
+IO_WR_INT_LN: 'io.writeIntLn';
+IO_RD_FLOAT: 'io.readFloat';
+IO_WR_FLOAT: 'io.writeFloat';
+IO_WR_FLOAT_LN: 'io.writeFloatLn';
+IO_RD_BOOL: 'io.readBool';
+IO_WR_BOOL: 'io.writeBool';
+IO_WR_BOOL_LN: 'io.writeBoolLn';
+IO_RD_STR: 'io.readStr';
+IO_WR_STR: 'io.writeStr';
+IO_WR_STR_LN: 'io.writeStrLn';
+
+/* io */
+IO: 'io';
+
+/* operator */
+ADD: '+';
+
+SUB: '-';
+
+MUL: '*';
+
+FLOAT_DIV: '/';
+
+INT_DIV: '\\';
+
+MOD: '%';
+
+DIFF: '<>';
+
+EQUAL: '==';
+
+LESS: '<';
+
+GREATER: '>';
+
+LESS_OR_EQUAL: '<=';
+
+GREATER_OR_EQUAL: '>=';
+
+LOGICAL_OR: '||';
+
+LOGICAL_AND: '&&';
+
+LOGICAL_NOT: '!';
+
+CONCAT: '^';
+
+/* literal */
+INT_LITERAL: [0-9]+;
+
+FLOAT_LITERAL: [0-9]+('.'[0-9]*)?([E|e][+|-]?[0-9]+)?;
+
+/* identifier */
+ID: [_a-zA-Z][_a-zA-Z0-9]*;
+
+/* separator */
+LSB: '[';
+
+RSB: ']';
+
+LP: '{';
+
+RP: '}';
+
+LB: '(';
+ 
+RB: ')';
+
+SEMICOLON: ';';
+
+COLON: ':';
+
+DOT: '.';
+
+COMMA: ',';
+
+/* statement */
+ASSIGN: ':=';

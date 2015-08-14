@@ -1,0 +1,6 @@
+INDEX VERSION 1.127+E:\eclipse mars\.metadata\.plugins\org.eclipse.jdt.core
+4124121273.index
+2666450434.index
+41752264.index
+4200566956.index
+3220059330.index
